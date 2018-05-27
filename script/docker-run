@@ -1,0 +1,13 @@
+#!/bin/sh
+
+currentDir=$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a" || return; pwd)
+projectRoot=$(cd "${currentDir}"/.. || return; pwd)
+containerDir="/srv"
+
+docker run \
+	--rm \
+	-t \
+	--volume "${projectRoot}:${containerDir}" \
+	$@
+
+exit $?

@@ -1,0 +1,12 @@
+allowed:
+  - mit
+
+sources:
+    bower: false
+    cabal: false
+    go: false
+    rubygem: false
+
+apps:
+  - name: 'Licensed Test'
+    source_path: 'test'

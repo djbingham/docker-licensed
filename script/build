@@ -1,0 +1,8 @@
+#!/bin/sh
+
+currentDir=$(a="/$0"; a=${a%/*}; a=${a:-.}; a=${a#/}/; cd "$a" || return; pwd)
+projectRoot=$(cd "${currentDir}"/.. || return; pwd)
+
+( cd ${projectRoot} && docker build -t local/licensed $@ . )
+
+exit $?
