@@ -6,10 +6,10 @@ To use licensed in a containerised environment, you need to mount your project r
 
 For example:
 ```
-docker run --rm -v $(pwd):/srv djbingham/licensed list
+docker run --rm -v $(pwd):/srv/project djbingham/licensed list
 ```
 
-If running from anywhere other than your project root, swap `$(pwd)` for the absolute path to the project root.
+If running from anywhere other than your project root, swap `$(pwd)` for the absolute path to the project root. Always ensure that the project root is mounted to a subfolder of `/srv` so that the Gemfile at that location will be read to find the `licensed` bundle.
 
 ## Development
 Build and tag the container image for local use:
